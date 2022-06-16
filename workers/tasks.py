@@ -220,6 +220,7 @@ def pricing(profit_margin, gamma_values, start_datetime, dr_prosumer_data, flex_
     ITER = -1
 
     for gamma in G_VALUES:
+        ITER += 1
         aggr_flex = dr_portfolio(n_users, T, offer_nsteps, bid_nsteps, pr, gamma, None, None, nshift_per_user, None, shiftable_consumption,
                                  nevs_per_user, None, evs_consumption, charge_limit, desired_start_times, deadlines, desired_finish_times, duration, E_matrix, delta, desired_x, baseload, curtailable_bids, flex_request, auw_vs_gamma, None, None, None, None)
 
