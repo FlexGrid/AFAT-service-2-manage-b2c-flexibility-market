@@ -6,9 +6,11 @@ import os
 controller generated to handled auth operation described at:
 https://connexion.readthedocs.io/en/latest/security.html
 """
+
+
 def check_oAuth2(token):
     if not os.environ.get("SAMPLE_DATA"):
-        auth = requests.get('https://db.flexgrid-project.eu/authorization/', params={
+        auth = requests.get('http://localhost:5000/authorization/', params={
             'token': token,
             'resource': 'atp',
             'method': 'post',
@@ -18,7 +20,6 @@ def check_oAuth2(token):
             return None
     return {'scopes': ['post_pricing'], 'uid': 'test_value'}
 
+
 def validate_scope_oAuth2(required_scopes, token_scopes):
     return set(required_scopes).issubset(set(token_scopes))
-
-
