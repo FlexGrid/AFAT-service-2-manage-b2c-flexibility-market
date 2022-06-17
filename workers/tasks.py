@@ -283,12 +283,12 @@ def pricing(profit_margin, gamma_values, start_datetime, dr_prosumer_data, flex_
                 'xlabel': "γ",
                 'ylabel': "AUW with B-RTP(γ) / AUW with RTP (γ = 0)",
                 'serries': [{'xvalues': G_VALUES.tolist(),
-                             'yvalues': AUW_BRTP_x.tolist(),
-                             'legend': f"γ = {G_VALUES[i]} {'(RTP)' if i == 0 else ''}"
+                             'yvalues': AUW_BRTP_x.tolist()
                              }],
                 'plot_type': 'scatter',
             },
             'UW_BAR': [{
+                'title': f"γ = {G_VALUES[i]}{' (RTP)' if i == 0 else ''}",
                 'xlabel': 'Users',
                 'ylabel': 'UW with B-RTP(γ)/UW with RTP',
                 'serries': [{'xvalues': (np.arange(np.size(row))+1).tolist(),
