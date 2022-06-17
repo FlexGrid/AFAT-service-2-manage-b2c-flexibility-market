@@ -10,7 +10,9 @@ https://connexion.readthedocs.io/en/latest/security.html
 
 def check_oAuth2(token):
     if not os.environ.get("SAMPLE_DATA"):
-        auth = requests.get('http://localhost:5000/authorization/', params={
+        db_url = os.getenv(
+            "CENTRAL_DB_BASE_URL") or 'https://db.flexgrid-project.eu'
+        auth = requests.get(f'{db_url}/authorization/', params={
             'token': token,
             'resource': 'atp',
             'method': 'post',
